@@ -1,4 +1,4 @@
-import inquirer from 'inquirer';
+import inquirer from "inquirer";
 
 console.log(`hello TypeScript`);
 var version = `es6`;
@@ -44,13 +44,13 @@ function printString(a: string): void {
 console.log(`printString() = `);
 printString(inferredString);
 
-inquirer.prompt(
-  [
+inquirer
+  .prompt([
     {
       name: "first_name",
-      message: "What is your name?"
-    }
-  ]
-).then(answers => {
-  console.log(`you answered : ${answers.first_name}`)
-})
+      message: "What is your name?",
+    },
+  ])
+  .then((answers) => {
+    console.log(`you answered : ${answers.first_name}`);
+  });
