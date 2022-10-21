@@ -39,3 +39,5 @@ console.log(`calculate() = ${calculate(3, 2, 1)}`);
 function printString(a: string): void {
   console.log(a);
 }
+console.log(`printString() = `);
+printString(inferredString);

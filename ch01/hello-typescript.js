@@ -25,3 +25,14 @@ function calculate(a, b, c) {
     return a * b + c;
 }
 console.log(`calculate() = ${calculate(3, 2, 1)}`);
+/**
+ * Given a string value, log it to the console.
+ *
+ * @param a   The input string
+ */
+function printString(a) {
+    console.log(a);
+}
+console.log(`printString() = `);
+printString(inferredString);
+//# sourceMappingURL=hello-typescript.js.map
