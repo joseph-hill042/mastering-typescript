@@ -1,4 +1,4 @@
-"use strict";
+import inquirer from 'inquirer';
 console.log(`hello TypeScript`);
 var version = `es6`;
 console.log(`hello ${version} TypeScript!!!`);
@@ -35,4 +35,12 @@ function printString(a) {
 }
 console.log(`printString() = `);
 printString(inferredString);
+inquirer.prompt([
+    {
+        name: "first_name",
+        message: "What is your name?"
+    }
+]).then(answers => {
+    console.log(`you answered : ${answers.first_name}`);
+});
 //# sourceMappingURL=hello-typescript.js.map
