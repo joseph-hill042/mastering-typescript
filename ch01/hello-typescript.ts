@@ -31,3 +31,11 @@ function calculate(a: number, b: number, c: number): number {
 }
 console.log(`calculate() = ${calculate(3, 2, 1)}`);
 
+/**
+ * Given a string value, log it to the console.
+ *
+ * @param a   The input string
+ */
+function printString(a: string): void {
+  console.log(a);
+}
