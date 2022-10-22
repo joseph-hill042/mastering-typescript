@@ -107,3 +107,39 @@ function printValues(a: number | null) {
 }
 printValues(1);
 printValues(null);
+
+/* CONDITIONALS */
+/* TERNARY */
+const value: number = 10;
+const message: string =
+  value > 10 ? "value is larger than 10" : "value is 10 or less";
+console.log(message);
+
+/* OPTIONAL CHAINING */
+var objectA = {
+  nestedProperty: {
+    name: "nestedPropertyName",
+  },
+};
+function printNestedOptionalChain(obj: any) {
+  if (obj?.nestedProperty?.name) {
+    console.log(`name = ${obj.nestedProperty.name}`);
+  } else {
+    console.log(`name not found or undefined`);
+  }
+}
+
+printNestedOptionalChain(undefined);
+printNestedOptionalChain({
+  aProperty: "another property",
+});
+printNestedOptionalChain({
+  nestedProperty: {
+    name: null,
+  },
+});
+printNestedOptionalChain({
+  nestedProperty: {
+    name: "nestedPropertyName",
+  },
+});

@@ -92,4 +92,38 @@ function printValues(a) {
 }
 printValues(1);
 printValues(null);
+/* CONDITIONALS */
+/* TERNARY */
+const value = 10;
+const message = value > 10 ? "value is larger than 10" : "value is 10 or less";
+console.log(message);
+/* OPTIONAL CHAINING */
+var objectA = {
+    nestedProperty: {
+        name: "nestedPropertyName",
+    },
+};
+function printNestedOptionalChain(obj) {
+    var _a;
+    if ((_a = obj === null || obj === void 0 ? void 0 : obj.nestedProperty) === null || _a === void 0 ? void 0 : _a.name) {
+        console.log(`name = ${obj.nestedProperty.name}`);
+    }
+    else {
+        console.log(`name not found or undefined`);
+    }
+}
+printNestedOptionalChain(undefined);
+printNestedOptionalChain({
+    aProperty: "another property",
+});
+printNestedOptionalChain({
+    nestedProperty: {
+        name: null,
+    },
+});
+printNestedOptionalChain({
+    nestedProperty: {
+        name: "nestedPropertyName",
+    },
+});
 //# sourceMappingURL=example.js.map
