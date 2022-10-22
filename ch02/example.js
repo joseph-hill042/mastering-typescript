@@ -288,4 +288,13 @@ function add(a, b) {
 console.log(add("first", "second"));
 console.log(add(1, 2));
 console.log(add(false, true));
+function withLiteral(input) {
+    console.log(`called with : ${input}`);
+}
+withLiteral("one");
+withLiteral("two");
+withLiteral("three");
+withLiteral(65535);
+withLiteral("four");
+withLiteral(2);
 //# sourceMappingURL=example.js.map

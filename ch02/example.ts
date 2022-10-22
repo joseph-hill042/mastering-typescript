@@ -339,3 +339,17 @@ function add(a: any, b: any): any {
 console.log(add("first", "second"));
 console.log(add(1, 2));
 console.log(add(false, true));
+
+/* LITERALS */
+type AllowedStringValues = "one" | "two" | "three";
+type AllowedNumericValues = 1 | 20 | 65535;
+function withLiteral(input: AllowedStringValues | AllowedNumericValues) {
+  console.log(`called with : ${input}`);
+}
+
+withLiteral("one");
+withLiteral("two");
+withLiteral("three");
+withLiteral(65535);
+withLiteral("four");
+withLiteral(2);
