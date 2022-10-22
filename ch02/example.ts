@@ -85,3 +85,25 @@ checkDoorState(DoorState.Open);
 checkDoorState(DoorState.Closed);
 console.log(`const Open = ${DoorStateConst.Open}`);
 console.log(`const Closed = ${DoorStateConst.Closed}`);
+
+/* UNDEFINED */
+let array = ["123", "456", "789"];
+delete array[0];
+for (let i = 0; i < array.length; i++) {
+  console.log(`array[${i}] = ${array[i]}`);
+}
+
+for (let i = 0; i < array.length; i++) {
+  checkAndPrintElement(array[i]);
+}
+function checkAndPrintElement(arrElement: string | undefined) {
+  if (arrElement === undefined) console.log(`invalid array element`);
+  else console.log(`valid array element : ${arrElement}`);
+}
+
+/* NULL */
+function printValues(a: number | null) {
+  console.log(`a = ${a}`);
+}
+printValues(1);
+printValues(null);
