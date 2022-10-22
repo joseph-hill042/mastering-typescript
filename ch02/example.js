@@ -126,4 +126,17 @@ printNestedOptionalChain({
         name: "nestedPropertyName",
     },
 });
+/* NULLISH COALESCING */
+function nullishCheck(a) {
+    console.log(`a : ${a !== null && a !== void 0 ? a : `undefined or null`}`);
+}
+nullishCheck(1);
+nullishCheck(null);
+nullishCheck(undefined);
+/* NULL OR UNDEFINED OPERANDS */
+function testNullOperands(a, b) {
+    return a + (b !== null && b !== void 0 ? b : 0);
+}
+console.log(testNullOperands(5));
+console.log(testNullOperands(5, 2));
 //# sourceMappingURL=example.js.map

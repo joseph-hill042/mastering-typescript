@@ -143,3 +143,19 @@ printNestedOptionalChain({
     name: "nestedPropertyName",
   },
 });
+
+/* NULLISH COALESCING */
+function nullishCheck(a?: number | null) {
+  console.log(`a : ${a ?? `undefined or null`}`);
+}
+nullishCheck(1);
+nullishCheck(null);
+nullishCheck(undefined);
+
+/* NULL OR UNDEFINED OPERANDS */
+function testNullOperands(a: number, b?: number | null) {
+  return a + (b ?? 0);
+}
+
+console.log(testNullOperands(5));
+console.log(testNullOperands(5, 2));
