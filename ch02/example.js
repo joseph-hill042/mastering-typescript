@@ -188,4 +188,32 @@ function fn(x) {
         x; // has type 'never'!
     }
 }
+/* OBJECT SPREAD */
+let firstObj = { id: 1, name: "firstObj" };
+let secondObj = Object.assign({}, firstObj);
+console.log(`secondObj : ${JSON.stringify(secondObj)}`);
+let nameObj = { name: "nameObj name" };
+let idObj = { id: 1 };
+let obj3 = Object.assign(Object.assign({}, nameObj), idObj);
+console.log(`obj3 = ${JSON.stringify(obj3)}`);
+let objPrec1 = { id: 1, name: "obj1 name" };
+let objPrec2 = { id: 1001, desc: "obj2 description" };
+let objPrec3 = Object.assign(Object.assign({}, objPrec1), objPrec2);
+console.log(`objPrec3 : ${JSON.stringify(objPrec3, null, 4)}`);
+let firstArray = [1, 2, 3];
+let secondArray = [3, 4, 5];
+let thirdArray = [...firstArray, ...secondArray];
+console.log(`third array = ${thirdArray}`);
+let objArray1 = [
+    { id: 1, name: "first element" },
+];
+let objArray2 = [
+    { id: 2, name: "second element" }
+];
+let objArray3 = [
+    ...objArray1,
+    { id: 3, name: "third element" },
+    ...objArray2
+];
+console.log(`objArray3 = ${JSON.stringify(objArray3, null, 4)}`);
 //# sourceMappingURL=example.js.map
