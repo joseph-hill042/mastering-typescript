@@ -139,4 +139,18 @@ function testNullOperands(a, b) {
 }
 console.log(testNullOperands(5));
 console.log(testNullOperands(5, 2));
+/* DEFINITE ASSIGNMENT */
+var globalString;
+setGlobalString("this string is set");
+console.log(`globalString = ${globalString}`);
+function setGlobalString(value) {
+    globalString = value;
+}
+let x;
+initialize();
+// No error!
+console.log(x + x);
+function initialize() {
+    x = 10;
+}
 //# sourceMappingURL=example.js.map

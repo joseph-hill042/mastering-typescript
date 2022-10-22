@@ -159,3 +159,19 @@ function testNullOperands(a: number, b?: number | null) {
 
 console.log(testNullOperands(5));
 console.log(testNullOperands(5, 2));
+
+/* DEFINITE ASSIGNMENT */
+var globalString!: string;
+setGlobalString("this string is set");
+console.log(`globalString = ${globalString}`);
+function setGlobalString(value: string) {
+  globalString = value;
+}
+
+let x: number;
+initialize();
+// No error!
+console.log(x! + x!);
+function initialize() {
+  x = 10;
+}
