@@ -235,17 +235,9 @@ let secondArray = [3, 4, 5];
 let thirdArray = [...firstArray, ...secondArray];
 console.log(`third array = ${thirdArray}`);
 
-let objArray1 = [
-  { id: 1, name: "first element" },
-]
-let objArray2 = [
-  { id: 2, name: "second element" }
-]
-let objArray3 = [
-  ...objArray1,
-  { id: 3, name: "third element" },
-  ...objArray2
-]
+let objArray1 = [{ id: 1, name: "first element" }];
+let objArray2 = [{ id: 2, name: "second element" }];
+let objArray3 = [...objArray1, { id: 3, name: "third element" }, ...objArray2];
 console.log(`objArray3 = ${JSON.stringify(objArray3, null, 4)}`);
 
 /* TUPLES */
@@ -278,16 +270,72 @@ console.log(`tuplerest = ${tupleRest}`);
 let complexObject = {
   aNum: 1,
   bStr: "name",
-  cBool: true
-}
+  cBool: true,
+};
 let { aNum, bStr, cBool } = complexObject;
 
 console.log(`aNum : ${aNum}`);
 console.log(`bStr : ${bStr}`);
 console.log(`cBool : ${cBool}`);
 
-let { aNum: objId, bStr: objName, cBool: isValid } 
-    = complexObject;
+let { aNum: objId, bStr: objName, cBool: isValid } = complexObject;
 console.log(`objId : ${objId}`);
 console.log(`objName : ${objName}`);
 console.log(`isValid : ${isValid}`);
+
+/* FUNCTIONS */
+
+/* OPTIONAL PARAMETERS */
+function concatValues(a: string, b?: string) {
+  console.log(`a + b = ${a + b}`);
+}
+concatValues("first", "second");
+concatValues("third");
+
+/* DEFAULT PARAMETERS */
+function concatWithDefault(a: string, b: string = "default") {
+  console.log(`a + b = ${a + b}`);
+}
+concatWithDefault("first", "second");
+concatWithDefault("third");
+
+/* REST PARAMETERS */
+function testArguments(...args: string[] | number[]) {
+  for (let i in args) {
+    console.log(`args[${i}] = ${args[i]}`);
+  }
+}
+testArguments("1");
+testArguments(10, 20);
+
+/* FUNCTION CALLBACKS */
+var myCallback = function (text: string) {
+  console.log("myCallback called with " + text);
+};
+function withCallbackArg(message: string, callbackFn: Function) {
+  console.log("withCallback called, message : " + message);
+  callbackFn(message + " from withCallback");
+}
+withCallbackArg("initial text", myCallback);
+
+/* FUNCTION SIGNATURES AS PARAMETERS */
+function myCallback2(text: string): void {
+  console.log(`myCallback2 called with ${text}`);
+}
+function withCallbackArg2(message: string, callbackFn: (text: string) => void) {
+  console.log(`withCallback2 called, message : ${message}`);
+  callbackFn(`${message} from withCallback2"`);
+}
+withCallbackArg2("more initial text", myCallback2);
+
+/* FUNCTION OVERRIDES */
+function add(a: string, b: string): string;
+function add(a: number, b: number): number;
+function add(a: boolean, b: boolean): boolean;
+function add(a: any, b: any): any {
+  return a + b;
+}
+
+console.log(add("first", "second"));
+console.log(add(1, 2));
+console.log(add(false, true));

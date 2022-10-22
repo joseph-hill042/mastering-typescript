@@ -204,17 +204,9 @@ let firstArray = [1, 2, 3];
 let secondArray = [3, 4, 5];
 let thirdArray = [...firstArray, ...secondArray];
 console.log(`third array = ${thirdArray}`);
-let objArray1 = [
-    { id: 1, name: "first element" },
-];
-let objArray2 = [
-    { id: 2, name: "second element" }
-];
-let objArray3 = [
-    ...objArray1,
-    { id: 3, name: "third element" },
-    ...objArray2
-];
+let objArray1 = [{ id: 1, name: "first element" }];
+let objArray2 = [{ id: 2, name: "second element" }];
+let objArray3 = [...objArray1, { id: 3, name: "third element" }, ...objArray2];
 console.log(`objArray3 = ${JSON.stringify(objArray3, null, 4)}`);
 /* TUPLES */
 let tuple1;
@@ -241,7 +233,7 @@ console.log(`tuplerest = ${tupleRest}`);
 let complexObject = {
     aNum: 1,
     bStr: "name",
-    cBool: true
+    cBool: true,
 };
 let { aNum, bStr, cBool } = complexObject;
 console.log(`aNum : ${aNum}`);
@@ -251,4 +243,49 @@ let { aNum: objId, bStr: objName, cBool: isValid } = complexObject;
 console.log(`objId : ${objId}`);
 console.log(`objName : ${objName}`);
 console.log(`isValid : ${isValid}`);
+/* FUNCTIONS */
+/* OPTIONAL PARAMETERS */
+function concatValues(a, b) {
+    console.log(`a + b = ${a + b}`);
+}
+concatValues("first", "second");
+concatValues("third");
+/* DEFAULT PARAMETERS */
+function concatWithDefault(a, b = "default") {
+    console.log(`a + b = ${a + b}`);
+}
+concatWithDefault("first", "second");
+concatWithDefault("third");
+/* REST PARAMETERS */
+function testArguments(...args) {
+    for (let i in args) {
+        console.log(`args[${i}] = ${args[i]}`);
+    }
+}
+testArguments("1");
+testArguments(10, 20);
+/* FUNCTION CALLBACKS */
+var myCallback = function (text) {
+    console.log("myCallback called with " + text);
+};
+function withCallbackArg(message, callbackFn) {
+    console.log("withCallback called, message : " + message);
+    callbackFn(message + " from withCallback");
+}
+withCallbackArg("initial text", myCallback);
+/* FUNCTION SIGNATURES AS PARAMETERS */
+function myCallback2(text) {
+    console.log(`myCallback2 called with ${text}`);
+}
+function withCallbackArg2(message, callbackFn) {
+    console.log(`withCallback2 called, message : ${message}`);
+    callbackFn(`${message} from withCallback2"`);
+}
+withCallbackArg2("more initial text", myCallback2);
+function add(a, b) {
+    return a + b;
+}
+console.log(add("first", "second"));
+console.log(add(1, 2));
+console.log(add(false, true));
 //# sourceMappingURL=example.js.map
