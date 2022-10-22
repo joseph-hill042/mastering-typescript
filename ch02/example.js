@@ -31,4 +31,44 @@ function addWithTypeGuard(arg1, arg2) {
 console.log(` "1", "2" = ${addWithTypeGuard("1", "2")}`);
 console.log(`  1 ,  2  = ${addWithTypeGuard(1, 2)}`);
 console.log(`  1 , "2" = ${addWithTypeGuard(1, "2")}`);
+function addWithTypeAlias(arg1, arg2) {
+    if (typeof arg1 === "number" && typeof arg2 === "number") {
+        // both are numbers
+        console.log(`arg1 and arg2 are numbers`);
+        return arg1 + arg2;
+    }
+    return arg1.toString() + arg2.toString();
+}
+console.log(` "1", "2" = ${addWithTypeAlias("1", "2")}`);
+console.log(`  1 ,  2  = ${addWithTypeAlias(1, 2)}`);
+console.log(`  1 , "2" = ${addWithTypeAlias(1, "2")}`);
+var DoorState;
+(function (DoorState) {
+    DoorState[DoorState["Open"] = 0] = "Open";
+    DoorState[DoorState["Closed"] = 1] = "Closed";
+})(DoorState || (DoorState = {}));
+var DoorStateString;
+(function (DoorStateString) {
+    DoorStateString["Open"] = "Open";
+    DoorStateString["Closed"] = "Closed";
+})(DoorStateString || (DoorStateString = {}));
+function checkDoorState(state) {
+    console.log(`enum value is : ${state}`);
+    switch (state) {
+        case DoorStateString.Open:
+        case DoorState.Open:
+            console.log(`Door is open`);
+            break;
+        case DoorStateString.Closed:
+        case DoorState.Closed:
+            console.log(`Door is closed`);
+            break;
+    }
+}
+checkDoorState(DoorStateString.Open);
+checkDoorState(DoorStateString.Closed);
+checkDoorState(DoorState.Open);
+checkDoorState(DoorState.Closed);
+console.log(`const Open = ${10 /* DoorStateConst.Open */}`);
+console.log(`const Closed = ${20 /* DoorStateConst.Closed */}`);
 //# sourceMappingURL=example.js.map
