@@ -216,4 +216,25 @@ let objArray3 = [
     ...objArray2
 ];
 console.log(`objArray3 = ${JSON.stringify(objArray3, null, 4)}`);
+/* TUPLES */
+let tuple1;
+tuple1 = ["test", true];
+/* TUPLE DESTRUCTURING */
+console.log(`tuple1[0] : ${tuple1[0]}`);
+console.log(`tuple1[1] : ${tuple1[1]}`);
+let [tupleString, tupleBoolean] = tuple1;
+console.log(`tupleString = ${tupleString}`);
+console.log(`tupleBoolean = ${tupleBoolean}`);
+/* OPTIONAL TUPLE ELEMENTS */
+let tupleOptional;
+tupleOptional = ["test", true];
+tupleOptional = ["test"];
+console.log(`tupleOptional[0] : ${tupleOptional[0]}`);
+console.log(`tupleOptional[1] : ${tupleOptional[1]}`);
+/* TUPLE & SPREAD SYNTAX */
+let tupleRest;
+tupleRest = [1];
+tupleRest = [1, "string1"];
+tupleRest = [1, "string1", "string2"];
+console.log(`tuplerest = ${tupleRest}`);
 //# sourceMappingURL=example.js.map
