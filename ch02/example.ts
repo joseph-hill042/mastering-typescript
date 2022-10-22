@@ -175,3 +175,42 @@ console.log(x! + x!);
 function initialize() {
   x = 10;
 }
+
+/* OBJECT */
+let structuredObject: object = {
+  name: "myObject",
+  properties: {
+    id: 1,
+    type: "AnObject",
+  },
+};
+function printObjectType(a: object) {
+  console.log(`a: ${JSON.stringify(a)}`);
+}
+
+printObjectType(structuredObject);
+
+/* UNKNOWN */
+let a: any = "test";
+let aNumber: number = 2;
+aNumber = a;
+
+let u: unknown = "an unknown";
+u = 1;
+let aNumber2: number;
+aNumber2 = <number>u;
+
+/* NEVER */
+function fail(msg: string): never {
+  throw new Error(msg);
+}
+
+function fn(x: string | number) {
+  if (typeof x === "string") {
+    // do something
+  } else if (typeof x === "number") {
+    // do something else
+  } else {
+    x; // has type 'never'!
+  }
+}
