@@ -181,9 +181,25 @@ console.log(`myClassMod.id = ${myClassMod.id}`);
 class ClassWithReadonly {
   readonly name: string;
   constructor(_name: string) {
-      this.name = _name;
+    this.name = _name;
   }
-  
 }
-const readOnly = new ClassWithReadonly('I am readonly!');
+const readOnly = new ClassWithReadonly("I am readonly!");
 console.log(readOnly.name);
+
+/* GET & SET */
+class ClassWithAccessors {
+  private _id = 0;
+  get id(): number {
+    console.log(`get id property`);
+    return this._id;
+  }
+  set id(value: number) {
+    console.log(`set id property`);
+    this._id = value;
+  }
+}
+
+const classWithAccessors = new ClassWithAccessors();
+classWithAccessors.id = 10;
+console.log(`classWithAccessors.id = ${classWithAccessors.id}`);
