@@ -210,4 +210,18 @@ class StaticFunction {
     console.log(`2`);
   }
 }
-StaticFunction.printTwo()
+StaticFunction.printTwo();
+
+/* STATIC PROPERTIES */
+class StaticProperty {
+  static count = 0;
+  updateCount() {
+    StaticProperty.count++;
+  }
+}
+const firstInstance = new StaticProperty();
+const secondInstance = new StaticProperty();
+firstInstance.updateCount();
+console.log(`StaticProperty.count = ${StaticProperty.count}`);
+secondInstance.updateCount();
+console.log(`StaticProperty.count = ${StaticProperty.count}`);
