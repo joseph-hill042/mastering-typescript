@@ -256,20 +256,44 @@ console.log(idName.id, idName.name);
 interface BaseStringOrNumber {
   id: string | number;
 }
-interface DerivedFromBaseNumber
-  extends BaseStringOrNumber {
+interface DerivedFromBaseNumber extends BaseStringOrNumber {
   id: number;
 }
 
-interface Multiple extends
-    DerivedFromBase,
-    DerivedFromBaseNumber 
-{
-    description: string;
+interface Multiple extends DerivedFromBase, DerivedFromBaseNumber {
+  description: string;
 }
 const multipleObject: Multiple = {
-    id: 1,
-    name: "myName",
-    description: "myDescription"
+  id: 1,
+  name: "myName",
+  description: "myDescription",
 };
 console.log(JSON.stringify(multipleObject));
+
+/* CLASS INHERITANCE */
+class BaseClass implements Base {
+  id = 0;
+}
+class DerivedFromBaseClass extends BaseClass implements DerivedFromBase {
+  name = "nameString";
+}
+
+const derivedClass = new DerivedFromBaseClass();
+console.log(JSON.stringify(derivedClass));
+
+interface FirstInterface {
+  id: number;
+}
+interface SecondInterface {
+  name: string;
+}
+class MultipleInterfaces implements
+  FirstInterface,
+  SecondInterface
+{
+  id = 0;
+  name = "nameString";
+}
+
+const multipleClass = new MultipleInterfaces();
+console.log(JSON.stringify(multipleClass));
