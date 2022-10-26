@@ -287,13 +287,28 @@ interface FirstInterface {
 interface SecondInterface {
   name: string;
 }
-class MultipleInterfaces implements
-  FirstInterface,
-  SecondInterface
-{
+class MultipleInterfaces implements FirstInterface, SecondInterface {
   id = 0;
   name = "nameString";
 }
 
 const multipleClass = new MultipleInterfaces();
 console.log(JSON.stringify(multipleClass));
+
+/* THE SUPER FUNCTION */
+class BaseClassWithCtor {
+  private id: number;
+  constructor(id: number) {
+    this.id = id;
+  }
+}
+class DerivedClassWithCtor extends BaseClassWithCtor {
+  private name: string;
+  constructor(id: number, name: string) {
+    super(id);
+    this.name = name;
+  }
+}
+
+const derivedWithSuper = new DerivedClassWithCtor(1, "Super");
+console.log(`derivedWithSuper = ${JSON.stringify(derivedWithSuper, null, 2)}`);
