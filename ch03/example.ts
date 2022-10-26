@@ -73,7 +73,7 @@ getProperty("id", { id: 1, name: "firstName" });
 getProperty("name", { id: 2, name: "secondName" });
 //getProperty("telephone", { id: 3, name: "thirdName" });
 
-/* CLASSES */
+/* -----CLASSES----- */
 class SimpleClass {
   id?: number;
   print(): void {
@@ -236,3 +236,40 @@ namespace FirstNameSpace {
 // deno-lint-ignore no-unused-vars
 const nameSpaceClass = new FirstNameSpace.NameSpaceClass();
 // let notExported = new FirstNameSpace.NotExported();
+
+/* ------INHERITANCE----- */
+
+/* INTERFACE INHERITANCE */
+interface Base {
+  id: number;
+}
+interface DerivedFromBase extends Base {
+  name: string;
+}
+class IdNameClass implements DerivedFromBase {
+  id = 0;
+  name = "nameString";
+}
+const idName = new IdNameClass();
+console.log(idName.id, idName.name);
+
+interface BaseStringOrNumber {
+  id: string | number;
+}
+interface DerivedFromBaseNumber
+  extends BaseStringOrNumber {
+  id: number;
+}
+
+interface Multiple extends
+    DerivedFromBase,
+    DerivedFromBaseNumber 
+{
+    description: string;
+}
+const multipleObject: Multiple = {
+    id: 1,
+    name: "myName",
+    description: "myDescription"
+};
+console.log(JSON.stringify(multipleObject));
