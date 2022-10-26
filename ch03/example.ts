@@ -312,3 +312,26 @@ class DerivedClassWithCtor extends BaseClassWithCtor {
 
 const derivedWithSuper = new DerivedClassWithCtor(1, "Super");
 console.log(`derivedWithSuper = ${JSON.stringify(derivedWithSuper, null, 2)}`);
+
+/* FUNCTION OVERRIDING */
+class BaseClassWithFn {
+  print(text: string) {
+    console.log(`BaseClassWithFn.print() : ${text}`);
+  }
+}
+class DerivedClassFnOverride extends BaseClassWithFn {
+  print(text: string) {
+    console.log(`DerivedClassFnOverride.print(${text})`);
+  }
+}
+
+const derivedClassFnOverride = new DerivedClassFnOverride();
+derivedClassFnOverride.print("test");
+
+class DerivedClassFnCallthrough extends BaseClassWithFn {
+  print(text: string) {
+    super.print(`from DerivedClassFncallthrough : ${text}`);
+  }
+}
+const derivedCallthrough = new DerivedClassFnCallthrough();
+derivedCallthrough.print("text");
