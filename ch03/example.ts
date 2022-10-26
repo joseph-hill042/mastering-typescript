@@ -22,20 +22,23 @@ interface IOptional {
   name?: string;
 }
 
-let optionalId: IOptional = {
+const optionalId: IOptional = {
   id: 1,
 };
-let optionalIdName: IOptional = {
+const optionalIdName: IOptional = {
   id: 2,
   name: "optional name",
 };
+console.log(JSON.stringify(optionalId));
+console.log(JSON.stringify(optionalIdName));
 
 /* WEAK TYPES */
 interface IWeakType {
   id?: number;
   name?: string;
 }
-let weakTypeNoOverlap: IWeakType = {};
+const weakTypeNoOverlap: IWeakType = {};
+console.log(JSON.stringify(weakTypeNoOverlap));
 
 /* 'IN' OPERATOR */
 function printNameOrValue(obj: IdName | DescrValue): void {
@@ -77,7 +80,7 @@ class SimpleClass {
     console.log(`SimpleClass.print() called.`);
   }
 }
-let mySimpleClass = new SimpleClass();
+const mySimpleClass = new SimpleClass();
 mySimpleClass.print();
 
 /* 'THIS' KEYWORD */
@@ -87,7 +90,7 @@ class SimpleClass2 {
     console.log(`SimpleClass2.id = ${this.id}`);
   }
 }
-let mySimpleClass2 = new SimpleClass2();
+const mySimpleClass2 = new SimpleClass2();
 mySimpleClass2.id = 2020;
 mySimpleClass2.print();
 
@@ -110,8 +113,8 @@ function printClass(a: Print) {
   a.print();
 }
 
-let classA = new ClassA();
-let classB = new ClassB();
+const classA = new ClassA();
+const classB = new ClassB();
 printClass(classA);
 printClass(classB);
 
@@ -120,7 +123,7 @@ class ClassC {
     console.log(`ClassC.print() called.`);
   }
 }
-let classC = new ClassC();
+const classC = new ClassC();
 printClass(classC);
 
 /* CLASS CONSTRUCTORS */
@@ -131,14 +134,14 @@ class ClassWithConstructor {
   }
 }
 
-let classWithConstructor = new ClassWithConstructor(10);
+const classWithConstructor = new ClassWithConstructor(10);
 console.log(`classWithConstructor = ${JSON.stringify(classWithConstructor)}`);
 
 /* CLASS MODIFIERS */
 class ClassWithPublicProperty {
   public id?: number;
 }
-let publicAccess = new ClassWithPublicProperty();
+const publicAccess = new ClassWithPublicProperty();
 publicAccess.id = 10;
 
 class ClassWithPrivateProperty {
@@ -147,7 +150,7 @@ class ClassWithPrivateProperty {
     this.id = id;
   }
 }
-let privateAccess = new ClassWithPrivateProperty(20);
+const privateAccess = new ClassWithPrivateProperty(20);
 
 console.log(JSON.stringify(publicAccess));
 console.log(JSON.stringify(privateAccess));
@@ -162,7 +165,7 @@ class ClassES6Private {
     console.log(`es6 private class = ${this.#id}`);
   }
 }
-let es6PrivateClass = new ClassES6Private(10);
+const es6PrivateClass = new ClassES6Private(10);
 console.log(`es6 private class = ${JSON.stringify(es6PrivateClass)}`);
 es6PrivateClass.print();
 
@@ -170,6 +173,6 @@ es6PrivateClass.print();
 class ClassWithCtorMods {
   constructor(public id: number, private name: string) {}
 }
-let myClassMod = new ClassWithCtorMods(1, "test");
+const myClassMod = new ClassWithCtorMods(1, "test");
 console.log(`myClassMod.id = ${myClassMod.id}`);
-console.log(`myClassMod.name = ${myClassMod.name}`);
+// console.log(`myClassMod.name = ${myClassMod.name}`);
