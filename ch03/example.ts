@@ -203,3 +203,11 @@ class ClassWithAccessors {
 const classWithAccessors = new ClassWithAccessors();
 classWithAccessors.id = 10;
 console.log(`classWithAccessors.id = ${classWithAccessors.id}`);
+
+/* STATIC FUNCTIONS */
+class StaticFunction {
+  static printTwo() {
+    console.log(`2`);
+  }
+}
+StaticFunction.printTwo()
