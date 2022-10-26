@@ -225,3 +225,14 @@ firstInstance.updateCount();
 console.log(`StaticProperty.count = ${StaticProperty.count}`);
 secondInstance.updateCount();
 console.log(`StaticProperty.count = ${StaticProperty.count}`);
+
+/* NAMESPACES */
+// deno-lint-ignore no-namespace
+namespace FirstNameSpace {
+  export class NameSpaceClass {}
+  // class NotExported {}
+}
+
+// deno-lint-ignore no-unused-vars
+const nameSpaceClass = new FirstNameSpace.NameSpaceClass();
+// let notExported = new FirstNameSpace.NotExported();
