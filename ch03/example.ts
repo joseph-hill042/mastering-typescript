@@ -352,3 +352,41 @@ class AccessProtected extends BaseClassProtected {
   }
 }
 const accessProtected = new AccessProtected(1);
+
+/* ABSTRACT CLASSES & METHODS*/
+abstract class EmployeeBase {
+  public id: number;
+  public name: string;
+  abstract doWork(): void;
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+}
+class OfficeWorker extends EmployeeBase {
+  doWork() {
+    console.log(`${this.name} : doing work`);
+  }
+}
+class OfficeManager extends OfficeWorker {
+  public employees: OfficeWorker[] = [];
+  manageEmployees() {
+    super.doWork();
+    for (const employee of this.employees) {
+      employee.doWork();
+    }
+  }
+}
+
+const joeBlogg = new OfficeWorker(1, "Joe");
+const jillBlogg = new OfficeWorker(2, "Jill");
+const jackManager = new OfficeManager(3, "Jack");
+jackManager.employees.push(joeBlogg);
+jackManager.employees.push(jillBlogg);
+jackManager.manageEmployees();
+
+console.log(
+  `officeWorkers = ${JSON.stringify(joeBlogg, null, 2)}, 
+  ${JSON.stringify(jillBlogg, null, 2)} : 
+  officeManager = ${JSON.stringify(jackManager, null, 2)}`
+);
