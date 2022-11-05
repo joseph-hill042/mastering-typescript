@@ -409,3 +409,27 @@ console.log(`DfromC instance of CfromA :
     ${new DfromC() instanceof CfromA}`);
 console.log(`DfromC instance of A : 
     ${new DfromC() instanceof A}`);
+
+/* INTERFACES EXTENDING CLASSES */
+class BaseInterfaceClass {
+  id = 0;
+  print() {
+    console.log(`this.id = ${this.id}`);
+  }
+}
+interface BaseInterfaceClassExt extends BaseInterfaceClass {
+  setId(id: number): void;
+}
+
+class ImplementsExt
+  extends BaseInterfaceClass
+  implements BaseInterfaceClassExt
+{
+  setId(id: number): void {
+    this.id = id;
+  }
+}
+
+const baseInt = new ImplementsExt();
+baseInt.setId(15);
+baseInt.print();
