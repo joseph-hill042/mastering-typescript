@@ -352,6 +352,7 @@ class AccessProtected extends BaseClassProtected {
   }
 }
 const accessProtected = new AccessProtected(1);
+accessProtected;
 
 /* ABSTRACT CLASSES & METHODS*/
 abstract class EmployeeBase {
