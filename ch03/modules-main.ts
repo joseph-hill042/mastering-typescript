@@ -23,3 +23,10 @@ const meMc1 = new MultipleExports.MultipleClass1();
 const meMc2 = new MultipleExports.MultipleClass2();
 meMc1.print();
 meMc2.print();
+
+/* DEFAULT EXPORTS */
+import DefaultAdd, { ModuleNonDefaultExport } from "./modules/DefaultExport.ts";
+const modDefault = DefaultAdd(1, 2);
+const modNonDefault = new ModuleNonDefaultExport();
+console.log(modDefault);
+modNonDefault.print();
